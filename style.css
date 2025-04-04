@@ -494,13 +494,13 @@ nav ul li a.active {
 
 .testimonial-content p::before,
 .testimonial-content p::after {
-    content: """;
+    content: '"';
     font-size: 2rem;
     color: var(--secondary-color);
 }
 
 .testimonial-content p::after {
-    content: """;
+    content: '"';
 }
 
 .testimonial-author {
