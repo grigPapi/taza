@@ -1,0 +1,511 @@
+/* Стили для страниц уроков */
+
+.lesson-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    grid-gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Боковая панель */
+.lesson-sidebar {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: calc(var(--header-height) + 20px);
+    max-height: calc(100vh - var(--header-height) - 40px);
+    overflow-y: auto;
+    width: 320px;
+    max-width: 320px;
+}
+
+.course-progress {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.progress-bar {
+    background-color: var(--border-color);
+    height: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--secondary-color);
+    width: var(--progress-percentage, 0%);
+    transition: width 0.3s;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-align: center;
+    font-weight: 500;
+}
+
+.lesson-navigation h3, 
+.toc-menu h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.lesson-navigation ul,
+.toc-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lesson-navigation ul li,
+.toc-menu ul li {
+    margin-bottom: 0.75rem;
+}
+
+.lesson-navigation ul li a,
+.toc-menu ul li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    background-color: rgba(0, 0, 0, 0.03);
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.lesson-navigation ul li a:hover,
+.toc-menu ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--secondary-color);
+    border-left-color: var(--secondary-color);
+}
+
+.lesson-navigation ul li a.active,
+.toc-menu ul li a.active {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--secondary-color);
+    border-left-color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.toc-menu ul ul {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+.toc-menu ul ul li {
+    margin-bottom: 0.5rem;
+}
+
+.toc-menu ul ul li a {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+}
+
+.lesson-loading-placeholder,
+.toc-loading-placeholder {
+    color: var(--text-light) !important;
+    font-style: italic;
+}
+
+.error {
+    color: var(--danger-color) !important;
+}
+
+/* Содержимое урока */
+.lesson-content {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.lesson-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.lesson-header h1 {
+    font-size: 2.75rem;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.lesson-header h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.lesson-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.lesson-meta span i {
+    margin-right: 0.25rem;
+}
+
+.lesson-section {
+    margin-bottom: 4rem;
+    padding-bottom: 1rem;
+}
+
+.lesson-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--primary-color);
+}
+
+.lesson-section h3 {
+    font-size: 1.6rem;
+    margin: 2rem 0 1.25rem;
+    color: var(--primary-color);
+}
+
+.lesson-section h4 {
+    font-size: 1.3rem;
+    margin: 1.5rem 0 1rem;
+    color: var(--text-dark);
+}
+
+.lesson-section p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.lesson-section ul,
+.lesson-section ol {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.lesson-section li {
+    margin-bottom: 0.5rem;
+}
+
+.lesson-section img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.lesson-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.lesson-section th,
+.lesson-section td {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.lesson-section th {
+    background-color: rgba(0, 0, 0, 0.03);
+    text-align: left;
+    font-weight: bold;
+}
+
+.lesson-section tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Специальные блоки */
+.note-block,
+.tip-block,
+.warning-block {
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.note-block {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 5px solid var(--secondary-color);
+}
+
+.tip-block {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left: 5px solid var(--success-color);
+}
+
+.warning-block {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 5px solid var(--danger-color);
+}
+
+.code-block {
+    margin: 1.5rem 0;
+}
+
+.code-block pre {
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Викторина */
+.quiz-section {
+    background-color: rgba(0, 0, 0, 0.03);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+}
+
+.quiz-question {
+    margin-bottom: 1.5rem;
+}
+
+.quiz-options {
+    list-style: none;
+    padding: 0;
+}
+
+.quiz-option {
+    margin-bottom: 0.75rem;
+}
+
+.quiz-option label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.quiz-option input {
+    margin-right: 0.5rem;
+}
+
+.quiz-submit {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.quiz-submit:hover {
+    background-color: #2980b9;
+}
+
+/* Навигация между уроками */
+.lesson-navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem 0;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 1.75rem;
+    border-radius: var(--border-radius);
+    background-color: var(--light-color);
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button.prev i {
+    margin-right: 0.5rem;
+}
+
+.nav-button.next i {
+    margin-left: 0.5rem;
+}
+
+/* Комментарии */
+.comments-section {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.comment-form {
+    margin-bottom: 2rem;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 1.25rem;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.comment-form textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.comment-form button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.comment-form button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.comment-info {
+    flex: 1;
+}
+
+.comment-author {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.comment-date {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.comment-body {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.comment-actions a {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.comment-actions a:hover {
+    color: var(--secondary-color);
+}
+
+.comment-list .comment-list {
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    border-left: 2px solid var(--border-color);
+    padding-left: 1.5rem;
+}
+
+/* Анимации секций урока */
+.lesson-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.lesson-section.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Добавляем визуальное отображение активного раздела при прокрутке */
+.lesson-section.active-section {
+    position: relative;
+}
+
+.lesson-section.active-section::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
